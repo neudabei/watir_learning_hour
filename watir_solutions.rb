@@ -19,8 +19,8 @@ browser.divs(:class => 'subject-title').each { |subject| puts subject.text }
 # --------------------------------------------------------------------------- #
 
 
-# 3.) Search for 'Italian' on http://staging.futurelearn.com/search and verify one of the results is 'INTRODUCTION TO ITALIAN'
-browser.goto 'https://admin:password@staging.futurelearn.com/search'
+# 3.) Search for 'Italian' on https://futurelearn.com/search and verify one of the results is 'INTRODUCTION TO ITALIAN'
+browser.goto 'https://futurelearn.com/search'
 browser.text_field(id: 'q').set('Italian')
 browser.button(name: 'commit').click
 browser.text.include?('INTRODUCTION TO ITALIAN')
@@ -44,7 +44,7 @@ class CourseEnrolment
   private
 
   def join_course
-    browser.goto 'localhost:3000/courses'
+    browser.goto 'https://www.futurelearn.com/courses'
     browser.a(:class => 'title', :title => 'Creative Coding').click
     browser.button(:value => 'Join now – just started').click
   end
